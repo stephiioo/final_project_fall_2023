@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, jsonify
 from db import Base, Patient, Doctor, MedicalRecord
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
@@ -7,14 +7,10 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-
 app = Flask(__name__)
 
-# # Create a SQLite database (you can change this to your specific database)
-# # DATABASE_URL = "mysql+pymysql://hants:ahi-admin-2023@scratch-server.mysql.database.azure.com/hants"
-# DATABASE_URL = "mysql+mysqlconnector://hants:INSERT-HERE@scratch-server.mysql.database.azure.com/hants"
+# Database configuration
 DATABASE_URL = "sqlite:///local.db"
-
 app.config['SQLALCHEMY_DATABASE_URI'] = DATABASE_URL
 Base.metadata.bind = app
 
@@ -44,7 +40,15 @@ def display_doctors():
 def display_medical_records():
     medical_records = session.query(MedicalRecord).all()
     return render_template('medical_records.html', medical_records=medical_records)
-    
+
+# API endpoint to return sample data as JSON
+@app.route('/api/data')
+def get_sample_data():
+    sample_data = {
+        'message': 'This is to fulfill the API endpoint criteria',
+        'details': 'The goal of this code is for the API endpoint to return the ssample data as JSON'
+    }
+    return jsonify(sample_data)
 
 if __name__ == '__main__':
     app.run(debug=True)
