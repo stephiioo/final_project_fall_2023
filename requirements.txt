@@ -1,3 +1,5 @@
 pandas
 flask
 SQLAlchemy
+authlib 
+requests
