@@ -1,7 +1,15 @@
+import logging
 from sqlalchemy import create_engine, Column, Integer, String, Date, ForeignKey
 from sqlalchemy.orm import relationship
 from sqlalchemy.ext.declarative import declarative_base
 
+## configure logging
+logging.basicConfig(
+    level=logging.DEBUG,
+    filename="logs/class.log",
+    filemode="w",
+    format='%(levelname)s - %(name)s - %(message)s'
+)
 
 Base = declarative_base()
 
@@ -42,10 +50,15 @@ class MedicalRecord(Base):
     patient = relationship('Patient', back_populates='records')
 
 
-## create connection and tables
+if __name__ == "__main__":
+    
+    try:
+        DATABASE_URL = "sqlite:///local.db"
+        engine = create_engine(DATABASE_URL)
+        Base.metadata.create_all(engine)
+        logging.debug("Tables created successfully")
+    except Exception as e:
+        logging.error(f"An error occurred: {e}")
 
+   ## create connection and tables
 # DATABASE_URL = "mysql+mysqlconnector://hants:sbu-admin-2023@scratch-server:3306/hants"
-
-DATABASE_URL = "sqlite:///local.db"
-engine = create_engine(DATABASE_URL)
-Base.metadata.create_all(engine)

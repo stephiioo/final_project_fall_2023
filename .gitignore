@@ -1,0 +1,9 @@
+# Ignore Python virtual environment
+venv/
+
+# Ignore database files or data directories
+local.db
+data/
+
+# Ignore environment variables file (if it's generated or contains sensitive information)
+.env
