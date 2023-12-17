@@ -6,7 +6,7 @@ import random
 from datetime import timedelta
 
 # Create a SQLite database in the current working directory
-DATABASE_URL = "mysql+mysqlconnector://steph:Finalproject1@34.27.105.165/steph"
+DATABASE_URL = "sqlite:///local.db"
 engine = create_engine(DATABASE_URL)
 
 # Create a session to interact with the database
@@ -46,13 +46,13 @@ def create_fake_medical_record(patient):
     )
 
 # Generate and insert fake data for doctors
-for _ in range(50):  
+for _ in range(20):  # Adjust the number of doctors you want to generate
     fake_doctor = create_fake_doctor()
     session.add(fake_doctor)
     session.commit()
 
 # Generate and insert fake data for patients and their medical records
-for _ in range(50): 
+for _ in range(50):  # Adjust the number of patients you want to generate
     fake_patient = create_fake_patient()
     session.add(fake_patient)
     session.commit()

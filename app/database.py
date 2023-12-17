@@ -57,14 +57,15 @@ if __name__ == "__main__":
         engine = create_engine(DATABASE_URL)
         Base.metadata.create_all(engine)
         logging.debug("Tables created successfully")
+        
+        # test connection and print table names
+        inspector = inspect(engine)
+        table_names = inspector.get_table_names()
+        logging.debug(f"Tables in the database: {table_names}")
+        print("Tables in the database:", table_names)
+        
     except Exception as e:
         logging.error(f"An error occurred: {e}")
-
-
-# test connection
-
-inspector = inspect (engine)
-inspector.get_table_names()
 
    ## create connection and tables
 # DATABASE_URL = "mysql+mysqlconnector://steph:Finalproject1@34.27.105.165/steph"
