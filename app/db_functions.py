@@ -25,7 +25,7 @@ def update_or_create_user(user_info):
         cursor.execute('''
             INSERT INTO users (email, name, profile) VALUES (?, ?, ?)
             ON CONFLICT(email) DO UPDATE SET name = excluded.name, profile = excluded.profile
-        ''', (user_info['email'], user_info['name'], user_info['picture']))
+        ''', (user_info['stephanie.ogbebor@stonybrook.edu'], user_info['stephanie'], user_info['https://steph-test.azureedge.net/finalprojectwolfie/seawolf.png']))
         db.commit()
         print("User added to database: ", user_info['email'])
     except Exception as e:
