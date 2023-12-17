@@ -23,19 +23,7 @@ class Patient(Base):
     gender = Column(String(10), nullable=False)
     contact_number = Column(String(15))
 
-    doctor_id = Column(Integer, ForeignKey('doctors.id'))
-    doctor = relationship('Doctor', back_populates='patients')
-
     records = relationship('MedicalRecord', back_populates='patient')
-
-class Doctor(Base):
-    __tablename__ = 'doctors'
-
-    id = Column(Integer, primary_key=True)
-    doctor_name = Column(String(255))
-    specialty = Column(String(255))
-
-    patients = relationship('Patient', back_populates='doctor')
 
 class MedicalRecord(Base):
     __tablename__ = 'medical_records'
@@ -51,7 +39,6 @@ class MedicalRecord(Base):
 
 
 if __name__ == "__main__":
-    
     try:
         DATABASE_URL = "mysql+mysqlconnector://steph:Finalproject1@34.27.105.165/steph"
         engine = create_engine(DATABASE_URL)
@@ -66,8 +53,3 @@ if __name__ == "__main__":
         
     except Exception as e:
         logging.error(f"An error occurred: {e}")
-
-   ## create connection and tables
-# DATABASE_URL = "mysql+mysqlconnector://steph:Finalproject1@34.27.105.165/steph"
-
-## mysql -u root -h 34.27.105.165 -p 

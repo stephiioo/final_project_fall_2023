@@ -1,7 +1,7 @@
 from flask import Flask, render_template, jsonify, url_for, redirect, session
 from authlib.integrations.flask_client import OAuth
 from authlib.common.security import generate_token
-from database import Base, Patient, Doctor, MedicalRecord
+from database import Base, Patient, MedicalRecord
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 import os
@@ -49,11 +49,6 @@ def index():
 def display_patients():
     patients = session.query(Patient).all()
     return render_template('patients.html', patients=patients)
-
-@app.route('/doctors')
-def display_doctors():
-    doctors = session.query(Doctor).all()
-    return render_template('doctors.html', doctors=doctors)
 
 @app.route('/medical_records')
 def display_medical_records():
@@ -113,4 +108,4 @@ def logout():
     return redirect('/')
 
 if __name__ == '__main__':
-    app.run(debug=True, port=5000)
+    app.run(debug=True, port=8080)
