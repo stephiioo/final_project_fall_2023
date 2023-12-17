@@ -16,7 +16,7 @@ app.secret_key = os.urandom(12)
 oauth = OAuth(app)
 
 ## Database configuration
-DATABASE_URL = "mysql+mysqlconnector://final:Finalproject1@34.27.105.165/root"
+DATABASE_URL = "mysql+mysqlconnector://steph:Finalproject1@34.27.105.165/steph"
 app.config['SQLALCHEMY_DATABASE_URI'] = DATABASE_URL
 Base.metadata.bind = create_engine(DATABASE_URL)
 

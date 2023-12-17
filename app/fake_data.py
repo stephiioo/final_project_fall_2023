@@ -6,7 +6,7 @@ import random
 from datetime import timedelta
 
 # Create a SQLite database in the current working directory
-DATABASE_URL = "mysql+mysqlconnector://final:Finalproject1@34.27.105.165/root"
+DATABASE_URL = "mysql+mysqlconnector://steph:Finalproject1@34.27.105.165/steph"
 engine = create_engine(DATABASE_URL)
 
 # Create a session to interact with the database

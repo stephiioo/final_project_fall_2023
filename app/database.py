@@ -53,7 +53,7 @@ class MedicalRecord(Base):
 if __name__ == "__main__":
     
     try:
-        DATABASE_URL = "mysql+mysqlconnector://final:Finalproject1@34.27.105.165/root"
+        DATABASE_URL = "mysql+mysqlconnector://steph:Finalproject1@34.27.105.165/steph"
         engine = create_engine(DATABASE_URL)
         Base.metadata.create_all(engine)
         logging.debug("Tables created successfully")
@@ -61,6 +61,6 @@ if __name__ == "__main__":
         logging.error(f"An error occurred: {e}")
 
    ## create connection and tables
-# DATABASE_URL = "mysql+mysqlconnector://final:Finalproject1@34.27.105.165:3306/root"
+# DATABASE_URL = "mysql+mysqlconnector://steph:Finalproject1@34.27.105.165/steph"
 
 ## mysql -u root -h 34.27.105.165 -p 
