@@ -16,7 +16,7 @@ app.secret_key = os.urandom(12)
 oauth = OAuth(app)
 
 ## Database configuration
-DATABASE_URL = "sqlite:///local.db"
+DATABASE_URL = "mysql+mysqlconnector://final:Finalproject1@34.27.105.165/root"
 app.config['SQLALCHEMY_DATABASE_URI'] = DATABASE_URL
 Base.metadata.bind = create_engine(DATABASE_URL)
 
@@ -33,6 +33,10 @@ logging.basicConfig(
 )
 
 @app.route('/')
+def base():
+    return render_template('base.html')
+
+@app.route('/')
 def index():
     try:
         logging.debug("Success! Default endpoint accessed")
@@ -41,19 +45,16 @@ def index():
         logging.error(f"An error occurred! {e}")
         return "Try again"
 
-## Route to display patients
 @app.route('/patients')
 def display_patients():
     patients = session.query(Patient).all()
     return render_template('patients.html', patients=patients)
 
-## Route to display doctors
 @app.route('/doctors')
 def display_doctors():
     doctors = session.query(Doctor).all()
     return render_template('doctors.html', doctors=doctors)
 
-## Route to display medical records
 @app.route('/medical_records')
 def display_medical_records():
     medical_records = session.query(MedicalRecord).all()
