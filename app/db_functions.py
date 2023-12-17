@@ -30,4 +30,4 @@ def update_or_create_user(user_info):
         print("User added to database: ", user_info['email'])
     except Exception as e:
         print(e)
-        db.rollback()
+        db.rollback()        

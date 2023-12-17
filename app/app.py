@@ -36,7 +36,7 @@ logging.basicConfig(
 def base():
     return render_template('base.html')
 
-@app.route('/')
+@app.route('/index') 
 def index():
     try:
         logging.debug("Success! Default endpoint accessed")

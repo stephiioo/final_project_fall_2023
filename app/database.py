@@ -1,5 +1,5 @@
 import logging
-from sqlalchemy import create_engine, Column, Integer, String, Date, ForeignKey
+from sqlalchemy import create_engine, inspect, Column, Integer, String, Date, ForeignKey
 from sqlalchemy.orm import relationship
 from sqlalchemy.ext.declarative import declarative_base
 
@@ -59,6 +59,12 @@ if __name__ == "__main__":
         logging.debug("Tables created successfully")
     except Exception as e:
         logging.error(f"An error occurred: {e}")
+
+
+# test connection
+
+inspector = inspect (engine)
+inspector.get_table_names()
 
    ## create connection and tables
 # DATABASE_URL = "mysql+mysqlconnector://steph:Finalproject1@34.27.105.165/steph"
