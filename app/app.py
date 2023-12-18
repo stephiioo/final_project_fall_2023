@@ -33,11 +33,11 @@ logging.basicConfig(
 )
 
 @app.route('/')
-def base():
-    return render_template('base.html')
-
-@app.route('/index') 
 def index():
+    return render_template('index.html')
+
+@app.route('/base') 
+def base():
     try:
         logging.debug("Success! Default endpoint accessed")
         return "Final project accomplished"
@@ -82,8 +82,12 @@ def google():
         }
     )
     redirect_uri = url_for('google_auth', _external=True)
-    session['nonce'] = generate_token()
-    return oauth.google.authorize_redirect(redirect_uri, nonce=session['nonce'])
+    app.logger.info('REDIRECT URL: %s', redirect_uri)  # Log the value instead of printing
+    nonce = generate_token()
+    session['nonce'] = nonce
+    redirect_uri = 'https://5000-cs-994375692158-default.cs-us-east1-vpcf.cloudshell.dev/google/auth/'
+    return oauth.google.authorize_redirect(redirect_uri, nonce=nonce)
+
 
 @app.route('/google/auth/')
 def google_auth():
@@ -108,4 +112,4 @@ def logout():
     return redirect('/')
 
 if __name__ == '__main__':
-    app.run(debug=True, port=8080)
+    app.run(debug=True, port=5000)

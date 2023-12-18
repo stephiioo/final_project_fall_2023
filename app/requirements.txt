@@ -4,3 +4,4 @@ SQLAlchemy
 authlib 
 requests
 faker
+python-dotenv

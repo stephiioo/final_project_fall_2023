@@ -13,7 +13,7 @@
 
 ### - Github (Version Control)
 ### - Flask (Python; Frotend & Backend) 
-### - MySQL (Database via Azure)
+### - MySQL (Database via GCP)
 ### - SQLAlchemy (ORM) 
 ### - .ENV (Environment Variables) 
 ### - Tailwind (Frontend Styling)
@@ -21,6 +21,18 @@
 ### - API Service (Flask Backend) 
 ### - Logger and or Sentry.io (Debugging & Logging) 
 ### - Docker (Containerization) 
-### - Azure (Deployment)
+### - GCP (Deployment)
 
+## Steps I took to run the app:
 
+### make repo in github then clone it into cloud shell
+
+### cd into the terminal
+
+### install all your necessary requirements and create all your necessary folders and files
+
+### create instance and cloud storage bucket (to save image) in gcp
+
+### re-use/adjust codes from previous homeworks and follow the steps detailed in your previous readmes to assist with running the codes
+
+### deploy web application on azure
