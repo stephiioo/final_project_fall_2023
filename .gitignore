@@ -1,2 +1,5 @@
+# Ignore .env file
 .env
+
+# Ignore alembic.ini file
 alembic.ini
