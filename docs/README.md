@@ -23,6 +23,17 @@
 ### - Docker (Containerization) 
 ### - GCP (Deployment)
 
+### .env
+### DB_HOST=34.27.105.165
+### DB_DATABASE=
+### DB_USERNAME=
+### DB_PASSWORD=
+### DB_PORT=3306
+### DB_CHARSET=utf8mb4
+
+### GOOGLE_CLIENT_ID = 
+### GOOGLE_CLIENT_SECRET = 
+
 ## Steps I took to run the app:
 
 ### make repo in github then clone it into cloud shell
