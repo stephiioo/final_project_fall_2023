@@ -30,9 +30,8 @@
 ##### DB_PASSWORD=
 ##### DB_PORT=3306
 ##### DB_CHARSET=utf8mb4
-
-### GOOGLE_CLIENT_ID = 
-### GOOGLE_CLIENT_SECRET = 
+##### GOOGLE_CLIENT_ID = 
+##### GOOGLE_CLIENT_SECRET = 
 
 ## Steps I took to run the app:
 
@@ -46,4 +45,26 @@
 
 ### re-use/adjust codes from previous homeworks and follow the steps detailed in your previous readmes to assist with running the codes
 
+
 ### deploy web application on azure
+
+### important commands:
+
+### docker: 
+
+#### steps:
+
+##### 1. run 'docker' 
+##### 2. run docker build -t final .
+##### 3. docker run -p 8005:5000 final
+##### 4. docker ps -> to run a container we already have
+##### 5. docker stop -> to stop image
+
+
+### deploying on gcp
+
+##### gcloud config set project [YOUR_PROJECT_ID]
+##### gcloud app deploy
+#### to note: you may be prompted to chose a region when deploying
+
+
