@@ -67,6 +67,6 @@
 ##### gcloud app deploy
 #### to note: you may be prompted to chose a region when deploying
 
-### errors: the 0auth worked but ran into errors re-routing back to the website so i had to comment out the 0auth codes when i deployed the webpage but i attempted it so i included images of the attempt
+
 
 
